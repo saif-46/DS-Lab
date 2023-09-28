@@ -1,0 +1,59 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int>v[10001];
+int visit[10001];
+int dist[10001];
+
+void bfs(int node)
+{
+    visit[node]=1;
+    dist[node]=0;
+    queue<int>q;
+    q.push(node);
+    while(!q.empty())
+    {
+        int cur=q.front();
+        q.pop();
+
+        for(int i=0;i<v[cur].size();i++)
+        {
+            int child=v[cur][i];
+            if(visit[child]==0)
+            {
+                q.push(child);
+                dist[child]=dist[cur]+1;
+                visit[child]=1;
+            }
+        }
+
+
+    }
+}
+
+int main()
+{
+    int t=1;
+    //cin>>t;
+    while(t--)
+    {
+        int n,m,a,b,x,y;
+        cin>>n>>m;
+        for(int i=0;i<n+1;i++) v[i].clear(),visit[i]=0,dist[i]=0;
+
+        for(int i=0;i<m;i++)
+        {
+            cin>>a>>b;
+            v[a].push_back(b);
+            v[b].push_back(a);
+        }
+        bfs(0);
+
+        for(int i=1; i<n;i++)
+        {
+            cout<<dist[i]<<endl;
+
+        }
+
+    }
+}

@@ -1,0 +1,67 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+#include<string.h>
+
+#define pf printf
+#define sc scanf
+#define ll long long
+#define yes printf("YES\n")
+#define no  printf("NO\n");
+#define pi acos(-1)
+
+
+const int inf = 1e9 + 10;
+const ll INF = 1e18 + 10;
+
+int main()
+{
+   int t=1;
+  // sc("%d",&t);
+   while(t--)
+   {
+       int n;
+       sc("%d",&n);
+       int arr[n][n],arr1[n][n],mul[n][n];
+       int sum=0,i,j;
+       for(int i=0;i<n;i++)
+       {
+           for(int j=0;j<n;j++)
+           {
+              sc("%d",&arr[i][j]);
+           }
+       }
+       for(int i=0;i<n;i++)
+       {
+           {
+              sc("%d",&arr1[i][j]); for(int j=0;j<n;j++)
+
+           }
+       }
+
+        for (int m = 0; m < n; m++) {
+        for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++) {
+          sum+= arr[m][j]*arr1[j][i];
+        }
+
+        mul[m][i] = sum;
+        sum = 0;
+      }
+    }
+
+
+
+        for(int i=0;i<n;i++)
+       {
+           for(int j=0;j<n;j++)
+           {
+              pf("%d ",mul[i][j]);
+           }
+           pf("\n");
+
+       }
+
+   }
+
+}

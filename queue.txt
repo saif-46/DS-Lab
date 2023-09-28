@@ -1,0 +1,69 @@
+///BISMILLAHIR RAHMANIR RAHIM///
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+#define n 5
+int front=-1,rear=-1;
+int a[n];
+void enqueue(int x)
+{
+    if(rear==n-1)
+        cout<<"Overflow"<<endl;
+    else if(front==-1&&rear==-1)
+    {
+        front=0;
+        rear=0;
+       a[rear]=x;
+    }
+    else
+    {
+        rear++;
+        a[rear]=x;
+    }
+}
+void dequeue()
+{
+    if(front==-1)
+        cout<<"Underflow"<<endl;
+    else if(front==rear)
+    {
+        front=rear=-1;
+    }
+    else
+    {
+        cout<<a[front]<<endl;
+        front++;
+    }
+}
+void s_top()
+{
+    if(front==-1)
+        cout<<"Underflow"<<endl;
+    else
+    {
+        cout<<a[front]<<endl;
+        front++;
+    }
+}
+void show()
+{
+    if(front==-1)
+        cout<<"Underflow"<<endl;
+    else
+    {
+        for(int i=front;i<=rear;i++)
+            cout<<a[i]<<" ";
+        cout<<endl;
+    }
+}
+int main()
+{
+ enqueue(2);
+ enqueue(3);
+ enqueue(4);
+ show();
+ dequeue();
+ s_top();
+ show();
+return 0;
+}
